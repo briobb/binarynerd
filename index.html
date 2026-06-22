@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Binary Nerd | Web制作代行</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+      background: #050805;
+      color: #fff;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+
+    body::before {
+      content: "01001010 101010 001101 110010 0101 101010 0011 111000";
+      position: fixed;
+      inset: 0;
+      color: rgba(0, 255, 90, 0.08);
+      font-family: monospace;
+      font-size: 18px;
+      line-height: 2;
+      letter-spacing: 4px;
+      word-break: break-all;
+      z-index: -1;
+      animation: matrixMove 18s linear infinite;
+      padding: 20px;
+    }
+
+    @keyframes matrixMove {
+      from { transform: translateY(-20%); }
+      to { transform: translateY(20%); }
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 100;
+      background: rgba(5, 8, 5, 0.88);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(0, 255, 90, 0.25);
+    }
+
+    .header-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 16px 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-family: monospace;
+      font-size: 22px;
+      font-weight: bold;
+      color: #00ff66;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      display: flex;
+      gap: 28px;
+      font-size: 14px;
+    }
+
+    nav a {
+      color: #fff;
+    }
+
+    nav a:hover {
+      color: #00ff66;
+    }
+
+    .menu-btn {
+      display: none;
+      width: 34px;
+      height: 34px;
+      border: none;
+      background: transparent;
+      appearance: none;
+      -webkit-appearance: none;
+      outline: none;
+      box-shadow: none;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .menu-btn span {
+      display: block;
+      width: 28px;
+      height: 2px;
+      background: #00ff66;
+      margin: 6px auto;
+      border-radius: 2px;
+      transition: 0.3s;
+    }
+
+    .menu-btn.active span:nth-child(1) {
+      transform: translateY(8px) rotate(45deg);
+    }
+
+    .menu-btn.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .menu-btn.active span:nth-child(3) {
+      transform: translateY(-8px) rotate(-45deg);
+    }
+
+    section {
+      padding: 90px 20px;
+    }
+
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      padding-top: 120px;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .eyebrow {
+      color: #00ff66;
+      font-family: monospace;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(38px, 9vw, 82px);
+      line-height: 1.1;
+      margin-bottom: 24px;
+      letter-spacing: -2px;
+    }
+
+    h1 span {
+      color: #00ff66;
+      font-family: monospace;
+    }
+
+    .hero-text {
+      max-width: 680px;
+      font-size: 18px;
+      color: #e8e8e8;
+      margin-bottom: 34px;
+    }
+
+    .btn-area {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 24px;
+      border-radius: 999px;
+      font-weight: bold;
+      border: 1px solid #00ff66;
+    }
+
+    .btn-main {
+      background: #00ff66;
+      color: #001b08;
+    }
+
+    .btn-sub {
+      color: #00ff66;
+    }
+
+    .section-title {
+      font-size: 34px;
+      margin-bottom: 20px;
+    }
+
+    .section-title span {
+      color: #00ff66;
+      font-family: monospace;
+    }
+
+    .lead {
+      max-width: 760px;
+      color: #ddd;
+      margin-bottom: 38px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(0, 0, 0, 0.72);
+      border: 1px solid rgba(0, 255, 90, 0.35);
+      padding: 26px;
+      border-radius: 18px;
+      box-shadow: 0 0 24px rgba(0, 255, 90, 0.08);
+    }
+
+    .card h3 {
+      color: #00ff66;
+      font-size: 21px;
+      margin-bottom: 12px;
+    }
+
+    .card p,
+    .card li {
+      color: #e5e5e5;
+      font-size: 15px;
+    }
+
+    .card ul {
+      list-style: none;
+      margin-top: 16px;
+    }
+
+    .card li {
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding: 9px 0;
+    }
+
+    .price {
+      font-size: 34px;
+      font-weight: bold;
+      color: #fff;
+      margin: 12px 0;
+    }
+
+    .price small {
+      font-size: 14px;
+      color: #aaa;
+    }
+
+    .popular {
+      border-color: #00ff66;
+      transform: translateY(-8px);
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 12px;
+      color: #001b08;
+      background: #00ff66;
+      padding: 4px 10px;
+      border-radius: 999px;
+      margin-bottom: 12px;
+      font-weight: bold;
+    }
+
+    .terminal {
+      background: rgba(0, 0, 0, 0.86);
+      border: 1px solid rgba(0, 255, 90, 0.45);
+      border-radius: 18px;
+      padding: 24px;
+      font-family: monospace;
+      color: #00ff66;
+      overflow: hidden;
+    }
+
+    .terminal p {
+      margin-bottom: 10px;
+    }
+
+    .white {
+      color: #fff;
+    }
+
+    footer {
+      padding: 40px 20px;
+      border-top: 1px solid rgba(0, 255, 90, 0.25);
+      text-align: center;
+      color: #aaa;
+      font-size: 13px;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        position: fixed;
+        top: 67px;
+        right: -100%;
+        width: 100%;
+        height: calc(100vh - 67px);
+        background: rgba(5, 8, 5, 0.97);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 34px;
+        transition: 0.3s;
+        font-size: 20px;
+      }
+
+      nav.active {
+        right: 0;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      section {
+        padding: 70px 20px;
+      }
+
+      .hero {
+        padding-top: 110px;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .popular {
+        transform: none;
+      }
+
+      .btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <div class="header-inner">
+      <div class="logo">BINARY NERD</div>
+
+      <button class="menu-btn" id="menuBtn" aria-label="メニュー">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav id="nav">
+        <a href="#about">ABOUT</a>
+        <a href="#service">SERVICE</a>
+        <a href="#price">PRICE</a>
+        <a href="#contact">CONTACT</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero">
+      <div class="container">
+        <p class="eyebrow">&gt; Web creation for small business</p>
+        <h1>
+          ホームページを、<br>
+          もっと身近に。<br>
+          <span>BINARY NERD</span>
+        </h1>
+        <p class="hero-text">
+          Binary Nerdは、小規模店舗・個人事業主向けのホームページ制作代行ブランドです。
+          独自ドメイン対応、管理費、更新費込み。難しい設定もまとめてサポートします。
+        </p>
+        <div class="btn-area">
+          <a href="#price" class="btn btn-main">料金プランを見る</a>
+          <a href="#contact" class="btn btn-sub">相談する</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <h2 class="section-title">ABOUT <span>//</span></h2>
+        <p class="lead">
+          「ホームページは欲しいけど、何から始めればいいかわからない」
+          そんな人のために、制作から公開後の管理までをまとめて代行します。
+          スマホで見やすく、必要な情報がすぐ伝わる、シンプルで使いやすいサイトを作ります。
+        </p>
+
+        <div class="terminal">
+          <p>&gt; create website...</p>
+          <p>&gt; setup domain...</p>
+          <p>&gt; publish online...</p>
+          <p class="white">&gt; あなたのお店を、ネット上に公開します。</p>
+        </div>
+      </div>
+    </section>
+
+    <section id="service">
+      <div class="container">
+        <h2 class="section-title">SERVICE <span>//</span></h2>
+        <p class="lead">
+          ホームページ制作に必要な基本作業をまとめて対応。
+          お店やサービスの魅力が伝わるページ作りをサポートします。
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>ホームページ制作代行</h3>
+            <p>店舗紹介、サービス紹介、メニュー、アクセス、お問い合わせなど、必要な内容を整理して制作します。</p>
+          </div>
+
+          <div class="card">
+            <h3>独自ドメイン対応</h3>
+            <p>○○.com などの独自ドメイン設定にも対応。取得から設定までサポートします。</p>
+          </div>
+
+          <div class="card">
+            <h3>管理・更新込み</h3>
+            <p>公開後の文章変更、画像差し替え、営業時間変更などもプラン内で対応します。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="price">
+      <div class="container">
+        <h2 class="section-title">PRICE <span>//</span></h2>
+        <p class="lead">
+          制作費・管理費・更新費込みの年間プラン。
+          必要な更新頻度に合わせて選べます。
+        </p>
+
+        <div class="cards">
+          <div class="card">
+            <h3>START</h3>
+            <p>まずはシンプルに始めたい方向け。</p>
+            <div class="price">¥36,000 <small>/ 年</small></div>
+            <ul>
+              <li>ホームページ制作代行</li>
+              <li>独自ドメイン対応</li>
+              <li>管理費込み</li>
+              <li>更新 月4回まで</li>
+              <li>スマホ対応</li>
+            </ul>
+          </div>
+
+          <div class="card popular">
+            <span class="tag">おすすめ</span>
+            <h3>STANDARD</h3>
+            <p>お知らせやメニュー変更があるお店向け。</p>
+            <div class="price">¥60,000 <small>/ 年</small></div>
+            <ul>
+              <li>ホームページ制作代行</li>
+              <li>独自ドメイン対応</li>
+              <li>管理費込み</li>
+              <li>更新 月8回まで</li>
+              <li>スマホ対応</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h3>UNLIMITED</h3>
+            <p>更新頻度が多い店舗・事業者向け。</p>
+            <div class="price">¥120,000 <small>/ 年</small></div>
+            <ul>
+              <li>ホームページ制作代行</li>
+              <li>独自ドメイン対応</li>
+              <li>管理費込み</li>
+              <li>更新回数 無制限</li>
+              <li>スマホ対応</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <h2 class="section-title">CONTACT <span>//</span></h2>
+        <p class="lead">
+          お店、個人事業、イベント、サービス紹介など、
+          小さく始めるホームページ制作のご相談を受け付けています。
+        </p>
+
+        <div class="terminal">
+          <p>&gt; お問い合わせ</p>
+          <p class="white">公式LINE、Instagram、メールフォームなどをここに設置できます。</p>
+          <p>&gt; ready to launch?</p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © 2026 BINARY NERD. All Rights Reserved.
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById("menuBtn");
+    const nav = document.getElementById("nav");
+    const navLinks = nav.querySelectorAll("a");
+
+    menuBtn.addEventListener("click", () => {
+      menuBtn.classList.toggle("active");
+      nav.classList.toggle("active");
+    });
+
+    navLinks.forEach(link => {
+      link.addEventListener("click", () => {
+        menuBtn.classList.remove("active");
+        nav.classList.remove("active");
+      });
+    });
+  </script>
+
+</body>
+</html>
