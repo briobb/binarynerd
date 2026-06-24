@@ -163,6 +163,13 @@
       box-shadow: 0 10px 30px rgba(90, 62, 43, 0.08);
     }
 
+    .card img {
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      border-radius: 16px;
+      margin-bottom: 18px;
+    }
+
     .card h3 {
       color: var(--main);
       margin-bottom: 12px;
@@ -298,7 +305,8 @@
       }
 
       .hero-img {
-        min-height: 300px;
+        aspect-ratio: 3 / 2;
+        min-height: 0;
       }
 
       .menu-grid,
@@ -380,18 +388,21 @@
 
       <div class="menu-grid">
         <div class="card">
+          <img src="images/cafe_photo7.png" alt="ハンドドリップコーヒー">
           <h3>Hand Drip Coffee</h3>
           <p>豆の香りを大切に、一杯ずつ丁寧に淹れるハンドドリップコーヒー。</p>
           <p class="price">¥550〜</p>
         </div>
 
         <div class="card">
+          <img src="images/cafe_photo8.png" alt="ランチプレート">
           <h3>Lunch Plate</h3>
           <p>野菜たっぷりの週替わりランチ。体にやさしい、満足感のある一皿。</p>
           <p class="price">¥1,200〜</p>
         </div>
 
         <div class="card">
+          <img src="images/cafe_photo9.png" alt="自家製スイーツ">
           <h3>Homemade Sweets</h3>
           <p>コーヒーによく合う、自家製ケーキや焼き菓子をご用意しています。</p>
           <p class="price">¥480〜</p>
