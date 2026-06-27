@@ -143,7 +143,7 @@ img.placeholder { display: none; }
   .hero { min-height: auto; padding-bottom: 0; background: white; }
   .hero-photo { position: relative; inset: auto; height: 54vw; min-height: 270px; }
   .hero-panel { width: 100%; min-height: 0; padding: 55px 24px 65px; clip-path: none; }
-  .hero h1 { font-size: clamp(31px,9.4vw,41px); }
+  .hero h1 { font-size: clamp(29px,8.8vw,39px); }
   .hero-copy { font-size: 13px; }
   .hero-number { top: calc(54vw - 55px); bottom: auto; }
   .hero-number strong { font-size: 33px; }
