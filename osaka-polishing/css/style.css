@@ -138,6 +138,8 @@ img.placeholder { display: none; }
 }
 
 @media (max-width: 700px) {
+  .global-nav a { padding-inline: 11px; }
+  .global-nav .nav-contact { padding-inline: 16px; }
   .hero { min-height: auto; padding-bottom: 0; background: white; }
   .hero-photo { position: relative; inset: auto; height: 54vw; min-height: 270px; }
   .hero-panel { width: 100%; min-height: 0; padding: 55px 24px 65px; clip-path: none; }
