@@ -56,6 +56,7 @@ h1, h2, h3, p { margin-top: 0; }
 .work-wide { grid-row: span 2; }
 .work-item .image-frame { height: 230px; background: #26384b; }
 .work-wide .image-frame { height: 570px; }
+.works-grid > .work-item:last-child { transform: translateY(-11px); }
 .work-meta { position: relative; padding: 20px 0 0 95px; }
 .work-meta span { position: absolute; left: 0; top: 24px; color: #9cabb9; font-size: 11px; }
 .work-meta h3 { margin-bottom: 2px; font-size: 17px; }
@@ -74,7 +75,7 @@ h1, h2, h3, p { margin-top: 0; }
 .history { display: grid; grid-template-columns: 1fr 1fr; padding: 0; background: var(--pale); }
 .history-photo { min-height: 690px; background: #717b83; }
 .history-content { align-self: center; max-width: 660px; padding: 90px 7vw; }
-.history-content h2 { font-family: "Noto Serif JP", serif; font-size: clamp(32px,3.3vw,46px); }
+.history-content h2 { white-space: nowrap; font-family: "Noto Serif JP", serif; font-size: clamp(28px,2.8vw,40px); }
 .history-content .lead { margin: 30px 0; font-family: "Noto Serif JP", serif; font-size: 18px; font-weight: 600; }
 .history-content > p:not(.eyebrow):not(.lead) { color: var(--gray); font-size: 13px; }
 .history-years { margin-top: 38px; border-top: 1px solid #adb4ba; }
@@ -153,6 +154,7 @@ img.placeholder { display: none; }
   .strength-card h3 { margin-block: 16px; font-size: 20px; }
   .works-grid { grid-template-columns: 1fr; gap: 45px; }
   .work-wide { grid-row: auto; }
+  .works-grid > .work-item:last-child { transform: none; }
   .work-wide .image-frame, .work-item .image-frame { height: 65vw; min-height: 245px; }
   .work-meta { padding-left: 82px; }
   .facility-layout { grid-template-columns: 1fr; gap: 50px; }
@@ -160,6 +162,7 @@ img.placeholder { display: none; }
   .history { grid-template-columns: 1fr; }
   .history-photo { min-height: 85vw; }
   .history-content { padding: 75px 24px; }
+  .history-content h2 { font-size: clamp(26px, 7.5vw, 32px); }
   .recruit-inner { grid-template-columns: 1fr; gap: 35px; }
   .contact-options { grid-template-columns: 1fr; }
   .contact-options a { min-height: 170px; }
