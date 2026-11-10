@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+# 本番URL確定後、scripts/configure-seo.py で Sitemap を設定してください。
