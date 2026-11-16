@@ -13,8 +13,8 @@ window.SITE_CONFIG = {
   // 送信機能は未実装。サーバー側検証・スパム対策・添付検査の実装後に接続すること。
   assets: {
     hero: null,
-    mirror: null,
-    hairline: null,
+    platingPrep: null,
+    deburring: null,
     buff: null,
     access: [
       { image: null, description: null },

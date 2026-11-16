@@ -12,7 +12,7 @@ HTML/CSS/JavaScript の1ページサイト。依存ライブラリ・ビルド�
 - 配色・レイアウト：style.css
 - メニュー・FAQ属性・入力確認：main.js
 - 未確定情報・差し替え画像：site-config.js
-- 写真は assets/ に置き、site-config.js のパスを指定。例：assets/hero.webp、mirror-polishing.webp、hairline-finishing.webp、buff-polishing.webp、access-step-01.webp ～ 03.webp。
+- 写真は assets/ に置き、site-config.js のパスを指定。例：assets/hero.webp、plating-preparation.webp、deburring.webp、buff-polishing.webp、access-step-01.webp ～ 03.webp。
 - 仮素材はCSSによる金属の抽象表現です。実際の設備・製品の写真ではありません。
 - 道案内の説明は assets.access[].description に設定。3枚と説明が確定したら index.html の「準備中」文も更新してください。
 

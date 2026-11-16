@@ -33,7 +33,7 @@ function replaceImage(container, source, alt) {
 }
 if (config) {
   replaceImage(document.querySelector('.hero-art'), config.assets.hero, '金属研磨作業の様子');
-  ['mirror', 'hairline', 'buff'].forEach((key, i) => replaceImage(document.querySelector(`.material-${i}`), config.assets[key], ['鏡面仕上げ','ヘアライン仕上げ','バフ研磨'][i]));
+  ['platingPrep', 'deburring', 'buff'].forEach((key, i) => replaceImage(document.querySelector(`.material-${i}`), config.assets[key], ['メッキ下地処理','バリ取り','バフ研磨'][i]));
   config.assets.access.forEach((step, i) => {
     const article = document.querySelectorAll('.steps article')[i];
     replaceImage(article.querySelector('.photo-placeholder'), step.image, ['ナビの到着地点','路地への進入','工場入口'][i]);
@@ -44,7 +44,7 @@ const business = {
   '@context': 'https://schema.org', '@type': 'LocalBusiness',
   name: 'タツミ研磨株式会社', telephone: '+81-6-6752-5549',
   address: { '@type': 'PostalAddress', addressRegion: '大阪府', addressLocality: '大阪市生野区', streetAddress: '巽西3-15-4', addressCountry: 'JP' },
-  description: 'ステンレス・アルミ・鉄・真鍮などの金属研磨。鏡面仕上げ、ヘアライン仕上げ、バフ研磨。'
+  description: 'ステンレス・アルミ・鉄・真鍮などの金属研磨。メッキ下地処理、バリ取り、バフ研磨。'
 };
 if (config?.productionUrl) {
   const url = new URL(config.productionUrl).href;
