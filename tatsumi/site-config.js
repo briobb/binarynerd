@@ -1,7 +1,7 @@
 /* 未確定情報はここに集約。URL・送信先を推測して設定しないでください。 */
 window.SITE_CONFIG = {
   productionUrl: null,
-  representativeFullName: null,
+  representativeFullName: '本多暢秀',
   postalCode: null,
   establishedYear: null,
   businessHours: null,
